@@ -39,7 +39,7 @@ class General extends Model
     public function destroyGeneral(Int $id)
     {
         $general = $this::findOrFail($id);
-        $destroyGeneral = $general->save();
+        $destroyGeneral = $general->delete();
 
         $destroyGeneral
             ? session()->flash('message', 'General Deleted Successfully!')

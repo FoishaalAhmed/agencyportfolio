@@ -25,7 +25,6 @@ class PortfolioRequest extends FormRequest
 
                 'photo' => ['mimes:jpeg,jpg,png,gif,webp', 'max:10000', 'required'],
                 'video' => ['required', 'required', 'max:255'],
-
             ];
 
         } else {
@@ -34,7 +33,6 @@ class PortfolioRequest extends FormRequest
 
                 'photo' => ['mimes:jpeg,jpg,png,gif,webp', 'max:100', 'nullable'],
                 'video' => ['required', 'nullable', 'max:255'],
-
             ];
         }
     }

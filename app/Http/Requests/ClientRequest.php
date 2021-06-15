@@ -6,8 +6,6 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class ClientRequest extends FormRequest
 {
-
-
     public function authorize()
     {
         return true;
@@ -25,14 +23,12 @@ class ClientRequest extends FormRequest
             return $rules + [
 
                 'logo' => ['mimes:jpeg,jpg,png,gif,webp', 'max:10000', 'required'],
-
             ];
         } else {
 
             return $rules + [
 
                 'logo' => ['mimes:jpeg,jpg,png,gif,webp', 'max:100', 'nullable'],
-
             ];
         }
     }

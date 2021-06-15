@@ -105,6 +105,29 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item @if (request()->is('admin/teams') || request()->is('admin/teams/*')) {{ 'menu-open' }} @endif">
+                    <a href="#" class="nav-link @if (request()->is('admin/teams') || request()->is('admin/teams/*')) {{ 'active' }} @endif">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Teams
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.teams.create') }}" class="nav-link @if (request()->is('admin/teams/create')) {{ 'active' }} @endif">
+                                <i class="fas fa-plus-square nav-icon"></i>
+                                <p>New Team</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.teams.index') }}" class="nav-link @if (request()->is('admin/teams')) {{ 'active' }} @endif">
+                                <i class="fas fa-list-alt nav-icon"></i>
+                                <p>Teams</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-item @if (request()->is('admin/pages') || request()->is('admin/pages/*')) {{ 'menu-open' }} @endif">
                     <a href="#" class="nav-link @if (request()->is('admin/pages') || request()->is('admin/pages/*')) {{ 'active' }} @endif">
                         <i class="nav-icon fas fa-file"></i>
@@ -132,6 +155,22 @@
                     <a href="{{ route('admin.portfolios.index') }}" class="nav-link @if (request()->is('admin/portfolios')) {{ 'active' }} @endif">
                         <i class="fas fa-list-alt nav-icon"></i>
                         <p>Portfolios</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.testimonials.index') }}" class="nav-link @if (request()->is('admin/testimonials')) {{ 'active' }} @endif">
+                        <i class="nav-icon fas fa-quote-left"></i>
+                        <p>
+                            Testimonials
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.queries.index') }}" class="nav-link @if (request()->is('admin/queries')) {{ 'active' }} @endif">
+                        <i class="nav-icon fas fa-question-circle"></i>
+                        <p>
+                            Queries
+                        </p>
                     </a>
                 </li>
                 <li class="nav-item">

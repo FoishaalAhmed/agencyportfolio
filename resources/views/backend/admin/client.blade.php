@@ -73,7 +73,7 @@
                                             <label class="control-label">{{ __('Name') }}</label>
                                             <input type="text" name="name" class="form-control"
                                                 placeholder="{{ __('Name') }}" autocomplete="off"
-                                                value="{{ old('video') }}" id="name"/>
+                                                value="{{ old('name') }}" id="name"/>
                                         </div>
                                     </div>
                                     <!-- /.form-group -->

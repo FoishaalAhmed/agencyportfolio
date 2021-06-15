@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Session;
 
 class Page extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'name', 'slug', 'text', 'photo',
     ];
@@ -31,9 +33,9 @@ class Page extends Model
         $this->text = $request->text;
         $storePage  = $this->save();
 
-        $storePage 
-        ? Session::flash('message', 'New Page Created Successfully!') 
-        : Session::flash('message', 'Something Went Wrong!');
+        $storePage
+            ? session()->flash('message', 'New Page Created Successfully!')
+            : session()->flash('message', 'Something Went Wrong!');
     }
 
     public function updatePage(Object $request, Int $id)
@@ -43,7 +45,7 @@ class Page extends Model
 
         if ($image) {
 
-            if(file_exists($page->photo)) unlink($page->photo);
+            if (file_exists($page->photo)) unlink($page->photo);
 
             $image_name      = date('YmdHis');
             $ext             = strtolower($image->getClientOriginalExtension());
@@ -59,9 +61,9 @@ class Page extends Model
         $page->text = $request->text;
         $updatePage  = $page->save();
 
-        $updatePage 
-        ? Session::flash('message', 'Page Updated Successfully!') 
-        : Session::flash('message', 'Something Went Wrong!');
+        $updatePage
+            ? session()->flash('message', 'Page Updated Successfully!')
+            : session()->flash('message', 'Something Went Wrong!');
     }
 
     public function destroyPage(Int $id)
@@ -69,11 +71,9 @@ class Page extends Model
         $page  = $this::findOrFail($id);
         if (file_exists($page->photo)) unlink($page->photo);
         $deletePage = $page->delete();
-        
-        $deletePage 
-        ? Session::flash('message', 'Page Deleted Successfully!') 
-        : Session::flash('message', 'Something Went Wrong!');
+
+        $deletePage
+            ? session()->flash('message', 'Page Deleted Successfully!')
+            : session()->flash('message', 'Something Went Wrong!');
     }
-
-
 }

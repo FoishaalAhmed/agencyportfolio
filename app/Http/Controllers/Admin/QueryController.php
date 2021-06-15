@@ -4,15 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Query;
-use Illuminate\Http\Request;
 
 class QueryController extends Controller
 {
-    private $query_object;
+    private $queryObject;
 
     public function __construct()
     {
-        $this->query_object = new Query();
+        $this->queryObject = new Query();
     }
 
     public function index()
@@ -29,7 +28,7 @@ class QueryController extends Controller
 
     public function destroy(Int $id)
     {
-        $this->query_object->destroy_query($id);
-        return redirect()->back();
+        $this->queryObject->destroyQuery($id);
+        return back();
     }
 }

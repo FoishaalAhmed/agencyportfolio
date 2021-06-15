@@ -26,7 +26,6 @@ class ServiceRequest extends FormRequest
                 'icon'        => 'mimes:jpeg,jpg,png,gif,webp|max:100|required',
                 'slug'        => 'required|string|max: 255|unique:services,slug',
                 'description' => 'required|string|max: 255',
-
             ];
 
         } else {
@@ -36,7 +35,6 @@ class ServiceRequest extends FormRequest
                 'icon'        => 'mimes:jpeg,jpg,png,gif,webp|max:100|nullable',
                 'description' => 'nullable|string|max:255',
                 'slug'        => 'required|string|max:255|unique:services,slug,'. $this->service,
-
             ];
         }
     }
