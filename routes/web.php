@@ -1,12 +1,18 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Frontend\GalleryController;
+use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\TeamController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/meet-our-team', [TeamController::class, 'index'])->name('teams');
+Route::post('/query', [TeamController::class, 'query'])->name('query');
+Route::get('/photo-gallery', [GalleryController::class, 'photo'])->name('photos');
+Route::get('/about-us', [GalleryController::class, 'about'])->name('about');
+Route::get('/news/{slug}', [GalleryController::class, 'news'])->name('news');
 
 
 

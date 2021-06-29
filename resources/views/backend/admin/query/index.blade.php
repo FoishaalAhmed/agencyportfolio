@@ -42,7 +42,7 @@
                             <td>{{$item->email}}</td>
                             <td>{{Str::limit($item->message, 150)}}</td>
                             <td>
-                                <a class="btn btn-sm bg-blue" href="{{route('admin.queries.show',[$item->id])}}"><span class="fas fa-edit"></span></a>
+                                <a class="btn btn-sm bg-blue" href="{{route('admin.queries.show',[$item->id])}}"><span class="fas fa-eye"></span></a>
 
                                     	<form action="{{route('admin.queries.destroy',[$item->id])}}" method="post" style="display: none;" id="delete-form-{{ $item->id}}">
                                             @csrf

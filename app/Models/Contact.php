@@ -11,7 +11,7 @@ class Contact extends Model
 
     protected $fillable = [
 
-        'email', 'phone', 'facebook', 'twitter', 'instagram', 'address',
+        'email', 'phone', 'facebook', 'twitter', 'instagram', 'address', 'map', 
 
     ];
 
@@ -20,6 +20,7 @@ class Contact extends Model
         'email'     => 'required|email|max:255',
         'phone'     => 'required|string|max:15',
         'address'   => 'nullable|string',
+        'map'       => 'nullable|string',
         'facebook'  => 'nullable|string|max:255',
         'twitter'   => 'nullable|string|max:255',
         'instagram' => 'nullable|string|max:255',
@@ -36,6 +37,7 @@ class Contact extends Model
         $contact->instagram = $request->instagram;
         $contact->pinterest = $request->pinterest;
         $contact->address   = $request->address;
+        $contact->map       = $request->map;
         $updateContact      = $contact->save();
 
         $updateContact ?

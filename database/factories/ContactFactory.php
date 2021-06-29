@@ -30,6 +30,7 @@ class ContactFactory extends Factory
             'twitter' => 'twitter.com',
             'instagram' => 'instagram.com',
             'pinterest' => 'pinterest.com',
+            'map' => 'Google map',
         ];
     }
 }

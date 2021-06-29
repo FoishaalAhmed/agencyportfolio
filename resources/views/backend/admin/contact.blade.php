@@ -86,7 +86,7 @@
                                 </div>
 										<!-- /.form-group -->
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <!-- /.form-group -->
                                 <div class="form-group">
                                     <div class="col-md-12">
@@ -94,7 +94,17 @@
                                         <textarea name="address" class="form-control" placeholder="{{ __('Address') }}" autocomplete="off" rows="3" required=""> {{ $contact->address }} </textarea>
                                     </div>
                                 </div>
-										<!-- /.form-group -->
+								<!-- /.form-group -->
+                            </div>
+                            <div class="col-md-6">
+                                <!-- /.form-group -->
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <label>{{ __('Google Map') }}</label>
+                                        <textarea name="map" class="form-control" placeholder="{{ __('Google Map') }}" autocomplete="off" rows="3" required=""> {{ $contact->map }} </textarea>
+                                    </div>
+                                </div>
+								<!-- /.form-group -->
                             </div>
                             <div class="col-md-12">
                                 <center>

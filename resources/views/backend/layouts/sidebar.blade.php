@@ -10,23 +10,8 @@
         </div>
     </div>
 
-    <!-- SidebarSearch Form -->
-    {{-- <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div> --}}
-
-    <!-- Sidebar Menu -->
     <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
             <li class="nav-item">
                 <a href="{{ URL::to('/dashboard') }}" class="nav-link @if (request()->is('admin/dashboard') || request()->is('blogger/dashboard')) {{ 'active' }} @endif">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -178,6 +163,14 @@
                         <i class="nav-icon fas fa-user-secret"></i>
                         <p>
                             Clients
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.awards.index') }}" class="nav-link @if (request()->is('admin/awards')) {{ 'active' }} @endif">
+                        <i class="nav-icon fas fa-award"></i>
+                        <p>
+                            Awards
                         </p>
                     </a>
                 </li>

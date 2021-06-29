@@ -25,7 +25,7 @@ class ServiceRequest extends FormRequest
 
                 'icon'        => 'mimes:jpeg,jpg,png,gif,webp|max:100|required',
                 'slug'        => 'required|string|max: 255|unique:services,slug',
-                'description' => 'required|string|max: 255',
+                'description' => 'required|string',
             ];
 
         } else {
@@ -33,7 +33,7 @@ class ServiceRequest extends FormRequest
             return $rules + [
 
                 'icon'        => 'mimes:jpeg,jpg,png,gif,webp|max:100|nullable',
-                'description' => 'nullable|string|max:255',
+                'description' => 'nullable|string',
                 'slug'        => 'required|string|max:255|unique:services,slug,'. $this->service,
             ];
         }
