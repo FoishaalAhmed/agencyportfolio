@@ -18,7 +18,8 @@ class Contact extends Model
     public static $validateRule = [
 
         'email'     => 'required|email|max:255',
-        'phone'     => 'required|string|max:15',
+        'phone'     => 'required|string|max:25',
+        'fax'       => 'nullable|string|max:50',
         'address'   => 'nullable|string',
         'map'       => 'nullable|string',
         'facebook'  => 'nullable|string|max:255',
@@ -32,6 +33,7 @@ class Contact extends Model
         $contact = $this::findOrFail($id);
         $contact->email     = $request->email;
         $contact->phone     = $request->phone;
+        $contact->fax       = $request->fax;
         $contact->facebook  = $request->facebook;
         $contact->twitter   = $request->twitter;
         $contact->instagram = $request->instagram;

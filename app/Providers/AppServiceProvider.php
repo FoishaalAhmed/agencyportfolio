@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Contact;
+use App\Models\Page;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -25,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $contact = Contact::first();
-        view()->share('contact', $contact);
+        $about = Page::where('slug', 'who-we-are')->first();
+        view()->share(['contact' => $contact, 'about' => $about]);
     }
 }

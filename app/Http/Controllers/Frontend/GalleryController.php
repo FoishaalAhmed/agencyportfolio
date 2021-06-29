@@ -20,10 +20,8 @@ class GalleryController extends Controller
     public function about()
     {
         $weAre = Page::where('slug', 'who-we-are')->first();
-        $mission = Page::where('slug', 'our-mission')->first();
-        $vision = Page::where('slug', 'our-vision')->first();
-        $services = Service::oldest()->select('name')->get();
-        return view('frontend.about', compact('weAre', 'mission', 'vision', 'services'));
+        $message = Page::where('slug', 'message-from-ceo')->first();
+        return view('frontend.about', compact('weAre', 'message'));
     }
 
     public function news($slug)

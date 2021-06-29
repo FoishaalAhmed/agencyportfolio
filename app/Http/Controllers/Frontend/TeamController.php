@@ -20,11 +20,18 @@ class TeamController extends Controller
         return view('frontend.team', compact( 'tvcs', 'documentaries', 'teams'));
     }
 
+    public function contact()
+    {
+        return view('frontend.contact');
+    }
+
     public function query(Request $request)
     {
         $validation = Validator::make($request->all(), [
             'name'    => 'required|string|max:255',
-            'email'   => 'nullable|email|max:255',
+            'email'   => 'required|email|max:255',
+            'phone'   => 'nullable|string|max:15',
+            'subject' => 'required|string|max:255',
             'message' => 'required|string|',
         ]);
 

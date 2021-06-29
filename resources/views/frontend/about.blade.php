@@ -1,83 +1,172 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('title', 'About us')
-@section('frontend-content')
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <section class="about-sec1">
-            <h2>About Us</h2>
+    <link rel="stylesheet" href="{{ asset('public/frontend/css/about-us.css') }}" />
+    <link rel="stylesheet" href="{{ asset('public/frontend/css/shared/shared.css') }}" />
+    <title>About Us|Priyonti</title>
+</head>
+
+<body>
+    <main>
+        <section class="header-main">
+            <nav class="navbar navbar-expand-lg navbar-light ms-4">
+                <div class="container-fluid">
+                    <a class="navbar-brand me-4" href="{{ URL::to('/') }}"><img class="navbar-logo"
+                            src="{{ asset('public/frontend/images/logo.png') }}" alt="" /></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav mx-auto nav_items me-5">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{{ URL::to('/') }}">HOME</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{{ route('about') }}">ABOUT US</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">SERVICE</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">PORTFOLIO</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">BUSINESSWALL</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="{{ route('contact') }}">CONTACT US</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">CAREER</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </section>
-        <section class="container">
-            <div class="about-sec2 row">
-                <div class="col-md-6">
-                    <img src="{{ asset($weAre->photo) }}" alt="">
-                </div>
-                <div class="col-md-6">
-                    <div>
-                        <h2>Who We Are?</h2>
-                        {!! $weAre->text !!}
+        <section id="about-us " class="mt-5">
+            @if ($weAre != null)
+                <div class="container about-us__top text-center mb-5">
+                    <div class="about-us__top-header">
+                        <h1>
+                            WHAT PRIONTY DOES
+                            <hr class="w-25 mx-auto" />
+                        </h1>
+                    </div>
+                    <div class="w-75 mx-auto about-us__top-content" style="text-align: justify">
+                        <p>
+                            {!! $weAre->text !!}
+                        </p>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section class="about-sec3">
-            <div class="container">
-                <div class="row mt-5">
-                    <div class="col-md-2">
-                        <img src="{{ asset($mission->photo) }}" alt="">
-                    </div>
-                    <div class="col-md-6">
-                        <h2 style="font-weight: bold; font-size: 46px;">OUR MISSION</h2>
-                        {!! $mission->text !!}
-                    </div>
-                </div>
-                <div class="row mt-5 mb-5">
-                    <div class="col-md-2">
-                        <img src="{{ asset($vision->photo) }}" alt="">
-                    </div>
-                    <div class="col-md-6">
-                        <h2 style="font-weight: bold; font-size: 46px;">OUR VISION</h2>
-                        {!! $vision->text !!}
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="about-sec4">
-            <div class="mt-5 mb-5">
-                <h2>Our Strength</h2>
-                <div>
-                    <img  class="rounded mx-auto d-block" src="{{ asset('public/frontend/media/About/3.png') }}" alt="">
-                </div>
-            </div>
-        </section>
-        <section class="about-sec5 mt-5 mb-5">
-            <div class="container">
-                <div class="row about-sec5-bg">
-                    <div class="col-md-3">
-                        <img src="{{ asset('public/frontend/media/About/4.png') }}" alt="">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="row">
-                            <div class="col mt-4 mb-4">
-                                @foreach ($services as $item)
-                                    <h4>{{ $item->name }}</h4>
-                                    
-                                @endforeach
+            @endif
+            @if ($message != null)
+                <div class="container-fluid about-us__bottom bg-light">
+                    <div class="container mt-5">
+                        <div class="about-us__bottom-header text-center pt-5">
+                            <h1>MESSAGE FROM CEO</h1>
+                        </div>
+                        <div class="row mt-5 pb-5">
+                            <div class="col-md-4 col-sm-12 gy-3">
+                                <img class="w-100" src="{{ asset($message->photo) }}" alt="" />
+                                <div class="img-info text-center">
+                                    <p style="margin: 0">MONOAR HOSSAIN PATHAN</p>
+                                    <small>CEO & PROPRIETOR</small>
+                                </div>
+                            </div>
+                            <div class="col ms-5 gy-3">
+                                <p class="w-70" style="text-align: justify; margin-left: -48px">
+                                    {!! $message->text !!}
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
+            @endif
+        </section>
+        <section id="footer" class="container-fluid">
+            <div class="container pt-5">
+                <div class="row footer__main">
+                    <div class="col footer__left">
+                        <img src="{{ asset('public/frontend/images/logo.png') }}" alt="logo" />
+                        <p style="text-align: justify">
+                            @if ($about != null)
+                                {!! substr($about->text, 0, 292) !!}
+                            @endif
+                        </p>
+                    </div>
+                    <div class="col-lg-6 px-3 text-center footer__middle">
+                        <div class="mt-5 footer__middle-text">
+                            <h6 class="">WANT TO MAKE SOMETHING GREAT TOGETHER?</h6>
+                            <p>LET’S TALK HERE OR EMAIL US AT</p>
+                            <a href="mailto:{{ $contact->email }}">{{ $contact->email }}</a>
+                        </div>
+                        <div class="footer__nav">
+                            <ul class="me-5 d-flex">
+                                <li class="mx-2">
+                                    <a class="" href="{{ URL::to('/') }}">HOME</a>
+                                </li>
+                                <li class="mx-2">
+                                    <a class="" href="{{ route('about') }}">ABOUT</a>
+                                </li>
+                                <li class="mx-2">
+                                    <a class="" href="#">SERVICE</a>
+                                </li>
+                                <li class="mx-2">
+                                    <a class="" href="#">PORTFOLIO</a>
+                                </li>
+                                <li class="mx-2">
+                                    <a class="" href="#">BUSINESSWALL</a>
+                                </li>
+                                <li class="mx-2">
+                                    <a class="" href="{{ route('contact') }}">CONTACT </a>
+                                </li>
+                                <li class="">
+                                    <a class="" href="#">CAREER</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col ms-5 footer__right pt-5">
+                        <h6 class="mb-2">CONTACT INFO</h6>
+                        <p>OFFICE LINE <br />{{ $contact->phone }}</p>
+                        <p>FAX <br />{{ $contact->fax }}</p>
+                        <p>{{ $contact->address }}</p>
+                    </div>
+                </div>
             </div>
         </section>
-        <section class="about-sec6 ">
-            <div>
-                <h2>A name you can trust</h2>
-                <p>We provide full scale marketing and advertising services  We have one</p>
-                <p>mission ” To generate demand for your product or service ”</p>
-                <a href="{{ URL::to('/') }}#contact">
-                    <button  type="button" class="btn btn-outline-dark mb-2">Contact Us &nbsp;<i class="fas fa-angle-right"></i></button>
-                </a>
-                
+        <section class="container-fluid footer__bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-9">
+                        <small>© 2021 PRIONTY EDIT & EFFECT </small>
+                    </div>
+                    <div class="col-3 d-flex justify-content-evenly align-items-center gx-2">
+                        <a href="https://{{ $contact->facebook }}"><i class="fab fa-facebook"></i> </a>
+                        <a href="https://{{ $contact->twitter }}"> <i class="fab fa-youtube"></i></a>
+                        <a href="https://{{ $contact->instagram }}"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://{{ $contact->pinterest }}"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
             </div>
         </section>
-    
-@endsection
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

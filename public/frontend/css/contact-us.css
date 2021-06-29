@@ -1,0 +1,16 @@
+.iframe-bg {
+  background-color: #a6bdc9;
+  height: 20rem;
+  position: relative;
+  margin-top: -15rem;
+  z-index: -1;
+}
+.form-button > button {
+  border-radius: 50px;
+}
+#footer {
+  margin-top: 100px;
+}
+.contact i {
+  font-size: 25px;
+}

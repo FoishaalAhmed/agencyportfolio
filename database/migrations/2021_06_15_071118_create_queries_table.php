@@ -17,6 +17,8 @@ class CreateQueriesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email');
+            $table->string('phone', 15)->nullable();
+            $table->string('subject');
             $table->mediumText('message');
             $table->timestamps();
         });

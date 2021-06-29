@@ -24,6 +24,7 @@ class ContactFactory extends Factory
     {
         return [
             'phone' => Str::random(14),
+            'fax' => Str::random(14),
             'email' => $this->faker->unique()->safeEmail(),
             'address' => $this->faker->address(),
             'facebook' => 'facebook.com',

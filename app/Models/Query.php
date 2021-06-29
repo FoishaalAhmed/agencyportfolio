@@ -17,6 +17,8 @@ class Query extends Model
     {
         $this->name    = $request->name ;
         $this->email   = $request->email ;
+        $this->phone   = $request->phone ;
+        $this->subject = $request->subject ;
         $this->message = $request->message ;
         $this->save() ;
     }

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/meet-our-team', [TeamController::class, 'index'])->name('teams');
 Route::post('/query', [TeamController::class, 'query'])->name('query');
+Route::get('/contact-us', [TeamController::class, 'contact'])->name('contact');
 Route::get('/photo-gallery', [GalleryController::class, 'photo'])->name('photos');
 Route::get('/about-us', [GalleryController::class, 'about'])->name('about');
 Route::get('/news/{slug}', [GalleryController::class, 'news'])->name('news');
