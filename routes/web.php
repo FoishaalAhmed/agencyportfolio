@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/careers', [HomeController::class, 'career'])->name('career');
 Route::get('/meet-our-team', [TeamController::class, 'index'])->name('teams');
 Route::post('/query', [TeamController::class, 'query'])->name('query');
 Route::get('/contact-us', [TeamController::class, 'contact'])->name('contact');

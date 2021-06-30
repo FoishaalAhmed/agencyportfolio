@@ -26,8 +26,7 @@
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <div class="container-fluid">
                         <a class="navbar-brand" href="{{ URL::to('/') }}"><img class="navbar-logo"
-                                src="{{ asset('public/frontend/images/logo.png') }}"
-                                alt="" /></a>
+                                src="{{ asset('public/frontend/images/logo.png') }}" alt="" /></a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                             aria-label="Toggle navigation">
@@ -54,7 +53,7 @@
                                     <a class="nav-link active" href="{{ route('contact') }}">CONTACT US</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="#">CAREER</a>
+                                    <a class="nav-link active" href="{{ route('career') }}">CAREER</a>
                                 </li>
                             </ul>
                         </div>
@@ -89,179 +88,176 @@
             <div class="container w-100 mt-5">
                 <div class=" row gy-3 mx-auto flex-row justify-content-center align-items-center">
                     @if ($strategic_planning != null)
-                    <div class="col col-md-auto">
-                        <div class="card card__main" style="width: 19rem">
-                            <div class="card-body">
-                                <img src="{{ asset($strategic_planning->photo) }}"
-                                    class="card-img-top" alt="..." />
-                                <h5 class="card-title card-title__main mt-2">
-                                    {{ $strategic_planning->name }}
-                                </h5>
-                                <p class="card-text card-text__main" style="text-align: justify">
-                                    {!! Str::limit($strategic_planning->text, 235) !!}
-                                </p>
-                                <a href="#" class="btn card-button">READ MORE</a>
+                        <div class="col col-md-auto">
+                            <div class="card card__main" style="width: 19rem">
+                                <div class="card-body">
+                                    <img src="{{ asset($strategic_planning->photo) }}" class="card-img-top"
+                                        alt="..." />
+                                    <h5 class="card-title card-title__main mt-2">
+                                        {{ $strategic_planning->name }}
+                                    </h5>
+                                    <p class="card-text card-text__main" style="text-align: justify">
+                                        {!! Str::limit($strategic_planning->text, 235) !!}
+                                    </p>
+                                    <a href="#" class="btn card-button">READ MORE</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endif
                     @if ($media_buying != null)
-                    <div class="col col-md-auto">
-                        <div class="card card__main" style="width: 19rem">
-                            <div class="card-body">
-                                <img src="{{ asset($media_buying->photo) }}"
-                                    class="card-img-top" alt="..." />
-                                <h5 class="card-title card-title__main mt-2">
-                                    {{ $media_buying->name }}
-                                </h5>
-                                <p class="card-text card-text__main" style="text-align: justify">
-                                    {!! Str::limit($media_buying->text, 235) !!}
-                                </p>
-                                <a href="#" class="btn card-button">READ MORE</a>
+                        <div class="col col-md-auto">
+                            <div class="card card__main" style="width: 19rem">
+                                <div class="card-body">
+                                    <img src="{{ asset($media_buying->photo) }}" class="card-img-top" alt="..." />
+                                    <h5 class="card-title card-title__main mt-2">
+                                        {{ $media_buying->name }}
+                                    </h5>
+                                    <p class="card-text card-text__main" style="text-align: justify">
+                                        {!! Str::limit($media_buying->text, 235) !!}
+                                    </p>
+                                    <a href="#" class="btn card-button">READ MORE</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endif
                     @if ($creative_design != null)
-                    <div class="col col-md-auto">
-                        <div class="card card__main" style="width: 19rem">
-                            <div class="card-body">
-                                <img src="{{ asset($creative_design->photo) }}"
-                                    class="card-img-top" alt="..." />
-                                <h5 class="card-title card-title__main mt-2">
-                                    {{ $creative_design->name }}
-                                </h5>
-                                <p class="card-text card-text__main" style="text-align: justify">
-                                    {!! Str::limit($creative_design->text, 235) !!}
-                                </p>
-                                <a href="#" class="btn card-button">READ MORE</a>
+                        <div class="col col-md-auto">
+                            <div class="card card__main" style="width: 19rem">
+                                <div class="card-body">
+                                    <img src="{{ asset($creative_design->photo) }}" class="card-img-top" alt="..." />
+                                    <h5 class="card-title card-title__main mt-2">
+                                        {{ $creative_design->name }}
+                                    </h5>
+                                    <p class="card-text card-text__main" style="text-align: justify">
+                                        {!! Str::limit($creative_design->text, 235) !!}
+                                    </p>
+                                    <a href="#" class="btn card-button">READ MORE</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endif
                 </div>
                 <div class=" my-3 gy-2 row gy-3  mx-auto flex-row justify-content-center align-items-center">
                     @if ($audiovisual_production != null)
-                    <div class="col col-md-auto">
-                        <div class="card card__main" style="width: 19rem">
-                            <div class="card-body">
-                                <img src="{{ asset($audiovisual_production->photo) }}"
-                                    class="card-img-top" alt="..." />
-                                <h5 class="card-title card-title__main mt-2">
-                                    {{ $audiovisual_production->name }}
-                                </h5>
-                                <p class="card-text card-text__main" style="text-align: justify">
-                                    {!! Str::limit($audiovisual_production->text, 235) !!}
-                                </p>
-                                <a href="#" class="btn card-button">READ MORE</a>
+                        <div class="col col-md-auto">
+                            <div class="card card__main" style="width: 19rem">
+                                <div class="card-body">
+                                    <img src="{{ asset($audiovisual_production->photo) }}" class="card-img-top"
+                                        alt="..." />
+                                    <h5 class="card-title card-title__main mt-2">
+                                        {{ $audiovisual_production->name }}
+                                    </h5>
+                                    <p class="card-text card-text__main" style="text-align: justify">
+                                        {!! Str::limit($audiovisual_production->text, 235) !!}
+                                    </p>
+                                    <a href="#" class="btn card-button">READ MORE</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endif
                     @if ($digital_marketing != null)
-                    <div class="col col-md-auto">
-                        <div class="card card__main" style="width: 19rem">
-                            <div class="card-body">
-                                <img src="{{ asset($digital_marketing->photo) }}"
-                                    class="card-img-top" alt="..." />
-                                <h5 class="card-title card-title__main mt-2">
-                                    {{ $digital_marketing->name }}
-                                </h5>
-                                <p class="card-text card-text__main" style="text-align: justify">
-                                    {!! Str::limit($digital_marketing->text, 235) !!}
-                                </p>
-                                <a href="#" class="btn card-button">READ MORE</a>
+                        <div class="col col-md-auto">
+                            <div class="card card__main" style="width: 19rem">
+                                <div class="card-body">
+                                    <img src="{{ asset($digital_marketing->photo) }}" class="card-img-top"
+                                        alt="..." />
+                                    <h5 class="card-title card-title__main mt-2">
+                                        {{ $digital_marketing->name }}
+                                    </h5>
+                                    <p class="card-text card-text__main" style="text-align: justify">
+                                        {!! Str::limit($digital_marketing->text, 235) !!}
+                                    </p>
+                                    <a href="#" class="btn card-button">READ MORE</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endif
                     @if ($event_management != null)
-                    <div class="col col-md-auto">
-                        <div class="card card__main" style="width: 19rem">
-                            <div class="card-body">
-                                <img src="{{ asset($event_management->photo) }}"
-                                    class="card-img-top" alt="..." />
-                                <h5 class="card-title card-title__main mt-2">
-                                    {{ $event_management->name }}
-                                </h5>
-                                <p class="card-text card-text__main" style="text-align: justify">
-                                    {!! Str::limit($event_management->text, 235) !!}
-                                </p>
-                                <a href="#" class="btn card-button">READ MORE</a>
+                        <div class="col col-md-auto">
+                            <div class="card card__main" style="width: 19rem">
+                                <div class="card-body">
+                                    <img src="{{ asset($event_management->photo) }}" class="card-img-top"
+                                        alt="..." />
+                                    <h5 class="card-title card-title__main mt-2">
+                                        {{ $event_management->name }}
+                                    </h5>
+                                    <p class="card-text card-text__main" style="text-align: justify">
+                                        {!! Str::limit($event_management->text, 235) !!}
+                                    </p>
+                                    <a href="#" class="btn card-button">READ MORE</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     @endif
                 </div>
                 <div class="row gy-3 mx-auto flex-row justify-content-center align-items-center">
-                     @if ($web_development != null)
-                    <div class="col col-md-auto">
-                        <div class="card card__main" style="width: 19rem">
-                            <div class="card-body">
-                                <img src="{{ asset($web_development->photo) }}"
-                                    class="card-img-top" alt="..." />
-                                <h5 class="card-title card-title__main mt-2">
-                                    {{ $web_development->name }}
-                                </h5>
-                                <p class="card-text card-text__main" style="text-align: justify">
-                                    {!! Str::limit($web_development->text, 235) !!}
-                                </p>
-                                <a href="#" class="btn card-button">READ MORE</a>
+                    @if ($web_development != null)
+                        <div class="col col-md-auto">
+                            <div class="card card__main" style="width: 19rem">
+                                <div class="card-body">
+                                    <img src="{{ asset($web_development->photo) }}" class="card-img-top" alt="..." />
+                                    <h5 class="card-title card-title__main mt-2">
+                                        {{ $web_development->name }}
+                                    </h5>
+                                    <p class="card-text card-text__main" style="text-align: justify">
+                                        {!! Str::limit($web_development->text, 235) !!}
+                                    </p>
+                                    <a href="#" class="btn card-button">READ MORE</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    @endif @if ($pr != null)
-                    <div class="col col-md-auto">
-                        <div class="card card__main" style="width: 19rem">
-                            <div class="card-body">
-                                <img src="{{ asset($pr->photo) }}"
-                                    class="card-img-top" alt="..." />
-                                <h5 class="card-title card-title__main mt-2">
-                                    {{ $pr->name }}
-                                </h5>
-                                <p class="card-text card-text__main" style="text-align: justify">
-                                    {!! Str::limit($pr->text, 235) !!}
-                                </p>
-                                <a href="#" class="btn card-button">READ MORE</a>
+                        @endif @if ($pr != null)
+                            <div class="col col-md-auto">
+                                <div class="card card__main" style="width: 19rem">
+                                    <div class="card-body">
+                                        <img src="{{ asset($pr->photo) }}" class="card-img-top" alt="..." />
+                                        <h5 class="card-title card-title__main mt-2">
+                                            {{ $pr->name }}
+                                        </h5>
+                                        <p class="card-text card-text__main" style="text-align: justify">
+                                            {!! Str::limit($pr->text, 235) !!}
+                                        </p>
+                                        <a href="#" class="btn card-button">READ MORE</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    @endif @if ($monitoring != null)
-                    <div class="col col-md-auto">
-                        <div class="card card__main" style="width: 19rem">
-                            <div class="card-body">
-                                <img src="{{ asset($monitoring->photo) }}"
-                                    class="card-img-top" alt="..." />
-                                <h5 class="card-title card-title__main mt-2">
-                                    {{ $monitoring->name }}
-                                </h5>
-                                <p class="card-text card-text__main" style="text-align: justify">
-                                    {!! Str::limit($monitoring->text, 235) !!}
-                                </p>
-                                <a href="#" class="btn card-button">READ MORE</a>
-                            </div>
-                        </div>
-                    </div>
-                    @endif
+                            @endif @if ($monitoring != null)
+                                <div class="col col-md-auto">
+                                    <div class="card card__main" style="width: 19rem">
+                                        <div class="card-body">
+                                            <img src="{{ asset($monitoring->photo) }}" class="card-img-top"
+                                                alt="..." />
+                                            <h5 class="card-title card-title__main mt-2">
+                                                {{ $monitoring->name }}
+                                            </h5>
+                                            <p class="card-text card-text__main" style="text-align: justify">
+                                                {!! Str::limit($monitoring->text, 235) !!}
+                                            </p>
+                                            <a href="#" class="btn card-button">READ MORE</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
                 </div>
             </div>
         </section>
-        @if ($who_we_are != null) 
-        
-        <section id="about-us" class="container-fluid">
-            <div class="row">
-                <div class="col-lg-5 col-md-5 col-sm-11 order-1 about-us__left" style='background: url("{{ asset($who_we_are->photo) }}") center center;'></div>
-                <div class="col order-2 about-us__right">
-                    <div class="about-us__right__content w-75 mx-auto  mt-5 mb-5 flex-row justify-content-center ">
-                        <h1>{{ $who_we_are->name }}</h1>
-                        <div class="" style="text-align: justify">
-                            {!! $who_we_are->text !!}
+        @if ($who_we_are != null)
+
+            <section id="about-us" class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-11 order-1 about-us__left"
+                        style='background: url("{{ asset($who_we_are->photo) }}") center center;'></div>
+                    <div class="col order-2 about-us__right">
+                        <div class="about-us__right__content w-75 mx-auto  mt-5 mb-5 flex-row justify-content-center ">
+                            <h1>{{ $who_we_are->name }}</h1>
+                            <div class="" style="text-align: justify">
+                                {!! $who_we_are->text !!}
+                            </div>
+                            <button class="px-2">ABOUT US</button>
                         </div>
-                        <button class="px-2">ABOUT US</button>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
         @endif
         <section id="clients" class="container-fluid pb-5">
@@ -273,7 +269,43 @@
                 </p>
             </div>
 
-            <div class="row owl-carousel owl-theme owl-loaded owl-drag">
+            <div class="row marquee w-100">
+                <ul class="marquee-content">
+                    @foreach ($firstThirteenClients as $item)
+
+                        <li>
+                            <i> <img src="{{ asset($item->logo) }}" alt="" /></i>
+                        </li>
+
+                    @endforeach
+                </ul>
+            </div>
+            <div class="container-fluid" style="padding: 0px">
+                <div class="row marquee w-100">
+                    <ul class="marquee-content2">
+                        @foreach ($secondThirteenClients as $item)
+
+                            <li>
+                                <i> <img src="{{ asset($item->logo) }}" alt="" /></i>
+                            </li>
+
+                        @endforeach
+                    </ul>
+                </div>
+                <div class="row marquee w-100">
+                    <ul class="marquee-content3">
+                        @foreach ($thirdThirteenClients as $item)
+
+                            <li>
+                                <i> <img src="{{ asset($item->logo) }}" alt="" /></i>
+                            </li>
+
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+
+            {{-- <div class="row owl-carousel owl-theme owl-loaded owl-drag">
                 <div class="owl-stage-outer">
                     <div class="owl-stage">
                         @foreach ($firstThirteenClients as $item)
@@ -314,24 +346,23 @@
                         @endforeach
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </section>
         <section id="awards" class="mb-5">
             <div class="container p-5">
                 <div class="row float-left g-3">
                     @foreach ($awards as $item)
-                    <div class="col-lg-3 col-sm-4">
-                        <div class="thumbnail gallery-img-holder content">
-                            <div class="content-overlay"></div>
-                            <img src="{{ asset($item->photo) }}"
-                                class="img-fluid content-image" />
-                            <div class="content-details fadeIn-bottom fadeIn-right">
-                                <h6>{{ $item->name }}</h6>
-                                <p>{{ $item->year }}</p>
+                        <div class="col-lg-3 col-sm-4">
+                            <div class="thumbnail gallery-img-holder content">
+                                <div class="content-overlay"></div>
+                                <img src="{{ asset($item->photo) }}" class="img-fluid content-image" />
+                                <div class="content-details fadeIn-bottom fadeIn-right">
+                                    <h6>{{ $item->name }}</h6>
+                                    <p>{{ $item->year }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                     @endforeach
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -339,8 +370,7 @@
             <div class="container pt-5">
                 <div class="row footer__main">
                     <div class="col footer__left">
-                        <img src="{{ asset('public/frontend/images/logo.png') }}"
-                            alt="logo" />
+                        <img src="{{ asset('public/frontend/images/logo.png') }}" alt="logo" />
                         <p>
                             @if ($about != null)
                                 {!! substr($about->text, 0, 292) !!}
@@ -374,7 +404,7 @@
                                     <a class="" href="{{ route('contact') }}">CONTACT </a>
                                 </li>
                                 <li class="">
-                                    <a class="" href="#">CAREER</a>
+                                    <a class="" href="{{ route('career') }}">CAREER</a>
                                 </li>
                             </ul>
                         </div>

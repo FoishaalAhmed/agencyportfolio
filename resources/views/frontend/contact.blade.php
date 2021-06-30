@@ -50,7 +50,7 @@
                                 <a class="nav-link active" href="{{ route('contact') }}">CONTACT US</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="#">CAREER</a>
+                                <a class="nav-link active" href="{{ route('career') }}">CAREER</a>
                             </li>
                         </ul>
                     </div>
@@ -173,7 +173,7 @@
                                     <a class="" href="{{ route('contact') }}">CONTACT </a>
                                 </li>
                                 <li class="">
-                                    <a class="" href="#">CAREER</a>
+                                    <a class="" href="{{ route('career') }}">CAREER</a>
                                 </li>
                             </ul>
                         </div>
