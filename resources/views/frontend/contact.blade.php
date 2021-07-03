@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="{{ asset('public/frontend/css/contact-us.css') }}" />
     <link rel="stylesheet" href="{{ asset('public/frontend/css/shared/shared.css') }}" />
-    <title>Priyonti</title>
+    <title>Contact Us</title>
 </head>
 
 <body>

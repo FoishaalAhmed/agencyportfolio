@@ -14,7 +14,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ asset('public/frontend/css/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('public/frontend/css/shared/shared.css') }}" />
-    <title>Priyonti</title>
+    <title>Career</title>
 </head>
 
 <body>
@@ -72,14 +72,11 @@
         <div id="career" class="container-fluid">
             <div class="container career__main">
                 <div class="row">
-                    <div class="col-md-6 career__main-left"></div>
-                    <div class="
-                col-md-6
-                career__main-right
-                d-flex
-                flex-column
-                justify-content-lg-around justify-content-md-evenly
-              ">
+                    <div class="col-md-6 career__main-left"
+                        style="background: url('{{ asset('public/frontend/images/career/Background.png') }}') center center;">
+                    </div>
+                    <div
+                        class="col-md-6 career__main-right d-flex flex-column justify-content-lg-around justify-content-md-evenly ">
                         <div class="career__main-right-text ms-3">
                             <h3>SERVICING <br />ACCOUNT EXECUTIVE</h3>
                             <p>
@@ -103,8 +100,7 @@
             <div class="container-fluid career__middle" style="padding: 0">
                 <div class="container">
                     <div class="row">
-                        <div class="
-                  col-md-6
+                        <div class="col-md-6
                   career__middle-right
                   d-flex
                   flex-column
@@ -128,13 +124,17 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="col-md-6 career__middle-left"></div>
+                        <div class="col-md-6 career__middle-left"
+                            style="background: url('{{ asset('public/frontend/images/career/Background-2.png') }}') center center;">
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="container career__end">
                 <div class="row">
-                    <div class="col-md-6 career__end-left"></div>
+                    <div class="col-md-6 career__end-left"
+                        style="background: url('{{ asset('public/frontend/images/career/Background-3.png') }}') center center;">
+                    </div>
                     <div class="
                 col-md-6
                 career__main-right
@@ -179,8 +179,9 @@
                             email
                         </p>
                     </div>
-                    <form method="post" data-form-title="CONTACT US">
-                        <input type="hidden" data-form-email="true" />
+                    <span id="form_output"></span>
+                    <form method="post" data-form-title="CONTACT US" id="cv-form" enctype="multipart/form-data">
+                        @csrf
                         <div class="form-group p-1 mb-2">
                             <input type="text" class="form-control" name="name" required="" placeholder="Name*"
                                 data-form-field="Name" />
@@ -200,7 +201,7 @@
                         <div class="d-flex justify-content-lg-between align-items-end mb-4">
                             <div class="form-group p-1">
                                 <small>Attach your Resume/ CV</small>
-                                <input class="form-control form-control-sm" id="formFileSm" type="file" />
+                                <input class="form-control form-control-sm" id="formFileSm" type="file" name="cv" id="cv"/>
                             </div>
                             <div class="form__footer-button">
                                 <button type="submit" class="btn btn-dark mb-3 btn-sm"
@@ -283,6 +284,51 @@
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <script src="{{ asset('public/frontend/js/jquery.min.js') }}"></script>
+
+    <script>
+        $(function() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-Token': '{{ csrf_token() }}'
+                }
+            });
+
+            $('#cv-form').submit(function(event) {
+                event.preventDefault();
+                $.ajax({
+
+                    url: "{{ route('career.application') }}",
+                    method: 'POST',
+                    data: new FormData(this),
+                    dataType: 'json',
+                    processData: false,
+                    contentType: false,
+
+                    success: function(data) {
+                        if (data.error.length > 0) {
+                            var error_html = '';
+                            for (var count = 0; count < data.error.length; count++) {
+                                error_html += '<div class="alert alert-danger">' + data.error[
+                                    count] + '</div>';
+                            }
+                            $('#form_output').html(error_html);
+                        } else {
+                            $('#form_output').html(data.success);
+                            $('#cv-form')[0].reset();
+                        }
+                    },
+
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+
+            });
+
+        });
+
     </script>
 </body>
 

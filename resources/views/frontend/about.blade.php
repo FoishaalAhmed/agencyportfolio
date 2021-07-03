@@ -13,7 +13,7 @@
 
     <link rel="stylesheet" href="{{ asset('public/frontend/css/about-us.css') }}" />
     <link rel="stylesheet" href="{{ asset('public/frontend/css/shared/shared.css') }}" />
-    <title>About Us|Priyonti</title>
+    <title>About Us</title>
 </head>
 
 <body>

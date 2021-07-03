@@ -201,7 +201,6 @@
   margin-top: -16rem;
 }
 .career__main-left {
-  background: url("../images/career/Background.png") center center;
   height: 37.5rem;
   background-size: cover;
 }
@@ -234,12 +233,10 @@
 }
 
 .career__middle-left {
-  background: url("../images/career/Background-2.png") center center;
   height: 37.5rem;
   background-size: cover;
 }
 .career__end-left {
-  background: url("../images/career/Background-3.png") center center;
   height: 37.5rem;
   background-size: cover;
   padding: 0;

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Frontend\CareerController;
 use App\Http\Controllers\Frontend\GalleryController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\TeamController;
@@ -8,7 +9,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
-Route::get('/careers', [HomeController::class, 'career'])->name('career');
+Route::get('/careers', [CareerController::class, 'index'])->name('career');
+Route::post('/careers/application', [CareerController::class, 'application'])->name('career.application');
 Route::get('/meet-our-team', [TeamController::class, 'index'])->name('teams');
 Route::post('/query', [TeamController::class, 'query'])->name('query');
 Route::get('/contact-us', [TeamController::class, 'contact'])->name('contact');

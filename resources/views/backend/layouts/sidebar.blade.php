@@ -113,6 +113,35 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item @if (request()->is('admin/careers') || request()->is('admin/careers/*')) {{ 'menu-open' }} @endif">
+                    <a href="#" class="nav-link @if (request()->is('admin/careers') || request()->is('admin/careers/*')) {{ 'active' }} @endif">
+                        <i class="nav-icon fas fa-file"></i>
+                        <p>
+                            Careers
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.careers.create') }}" class="nav-link @if (request()->is('admin/careers/create')) {{ 'active' }} @endif">
+                                <i class="fas fa-plus-square nav-icon"></i>
+                                <p>New Career</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.careers.index') }}" class="nav-link @if (request()->is('admin/careers')) {{ 'active' }} @endif">
+                                <i class="fas fa-list-alt nav-icon"></i>
+                                <p>Careers</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.careers.index') }}" class="nav-link @if (request()->is('admin/careers')) {{ 'active' }} @endif">
+                                <i class="fas fa-list-alt nav-icon"></i>
+                                <p>Job Applications</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-item @if (request()->is('admin/pages') || request()->is('admin/pages/*')) {{ 'menu-open' }} @endif">
                     <a href="#" class="nav-link @if (request()->is('admin/pages') || request()->is('admin/pages/*')) {{ 'active' }} @endif">
                         <i class="nav-icon fas fa-file"></i>

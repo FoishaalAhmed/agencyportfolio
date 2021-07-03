@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\ApplicationController;
 use App\Http\Controllers\Admin\AwardController;
+use App\Http\Controllers\Admin\CareerController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -19,9 +21,13 @@ use App\Http\Controllers\Admin\UserController;
 Route::group(['prefix' => '/admin', 'as' => 'admin.', 'middleware' => ['admin', 'auth']], function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/applications', [ApplicationController::class, 'index'])->name('applications.index');
+    Route::get('/applications/{id}', [ApplicationController::class, 'show'])->name('applications.show');
+    Route::delete('/applications/delete/{id}', [ApplicationController::class, 'destroy'])->name('applications.destroy');
     Route::get('/contacts', [ContactController::class, 'index'])->name('contacts');
     Route::put('contacts/update/{id}', [ContactController::class, 'update'])->name('contacts.update');
     Route::resource('users', UserController::class);
+    Route::resource('careers', CareerController::class);
     Route::resource('galleries', GalleryController::class);
     Route::resource('portfolios', PortfolioController::class);
     Route::resource('news', NewsController::class);

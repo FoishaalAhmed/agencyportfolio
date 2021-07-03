@@ -26,11 +26,6 @@ class HomeController extends Controller
         $secondThirteenClients = Client::skip(13)->Take(13)->select('logo')->get();
         $thirdThirteenClients = Client::skip(26)->Take(13)->select('logo')->get();
         $awards = Award::latest()->take(8)->get();
-        return view('frontend.index', compact('strategic_planning','media_buying', 'creative_design', 'audiovisual_production', 'digital_marketing', 'event_management', 'web_development', 'pr', 'monitoring', 'who_we_are', 'testimonial', 'firstThirteenClients', 'secondThirteenClients', 'thirdThirteenClients', 'awards'));
-    }
-
-    public function career()
-    {
-        return view('frontend.career');
+        return view('frontend.index', compact('strategic_planning','media_buying', 'creative_design', 'audiovisual_production', 'digital_marketing', 'event_management', 'web_development', 'pr', 'monitoring', 'who_we_are', 'firstThirteenClients', 'secondThirteenClients', 'thirdThirteenClients', 'awards'));
     }
 }
