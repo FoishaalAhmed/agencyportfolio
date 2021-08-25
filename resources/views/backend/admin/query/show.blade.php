@@ -24,7 +24,7 @@
                     <form method="post" id="userForm" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <div class="col-md-12">
                                         <label>{{ __('Name') }}</label>
@@ -36,7 +36,7 @@
                                 <!-- /.form-group -->
                             </div>
                             <!-- /.col -->
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <div class="col-md-12">
                                         <label>{{ __('E-mail') }}</label>
@@ -48,12 +48,36 @@
                                 <!-- /.form-group -->
                             </div>
                             <!-- /.col -->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <label>{{ __('Phone') }}</label>
+                                        <input type="text" name="phone" class="form-control"
+                                            placeholder="{{ __('Phone') }}" required="" autocomplete="off"
+                                            value="{{ $query->phone }}" />
+                                    </div>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <!-- /.col -->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <label>{{ __('Subject') }}</label>
+                                        <input type="text" name="subject" class="form-control"
+                                            placeholder="{{ __('Subject') }}" required="" autocomplete="off"
+                                            value="{{ $query->subject }}" />
+                                    </div>
+                                </div>
+                                <!-- /.form-group -->
+                            </div>
+                            <!-- /.col -->
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <div class="col-md-12">
-                                        <label class="control-label">{{ __('message') }}</label>
+                                        <label class="control-label">{{ __('Message') }}</label>
                                         <textarea name="message" class="form-control" id="message" rows="3"
-                                            placeholder="{{ __('message') }}"
+                                            placeholder="{{ __('Message') }}"
                                             autocomplete="off">{{ $query->message }}</textarea>
                                     </div>
                                 </div>

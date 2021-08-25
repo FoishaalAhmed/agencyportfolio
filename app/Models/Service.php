@@ -9,6 +9,10 @@ class Service extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name', 'slug', 'position', 'icon', 'description',
+    ];
+
     public function storeService(Object $request)
     {
         $image = $request->file('icon');
@@ -26,6 +30,7 @@ class Service extends Model
 
         $this->name        = $request->name ;
         $this->slug        = $request->slug ;
+        $this->position    = $request->position ;
         $this->description = $request->description ;
         $storeService      = $this->save();
 
@@ -54,6 +59,7 @@ class Service extends Model
 
         $service->name        = $request->name ;
         $service->slug        = $request->slug ;
+        $service->position    = $request->position ;
         $service->description = $request->description ;
         $updateService        = $service->save();
 

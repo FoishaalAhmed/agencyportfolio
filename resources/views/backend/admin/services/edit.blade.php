@@ -29,7 +29,7 @@
                     <div class="row">
 						<div class="col-md-9">
 							<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-4">
 									<div class="form-group">
 										<div class="col-md-12">
 											<label>{{__('Name')}}</label>
@@ -39,11 +39,21 @@
 									<!-- /.form-group -->
 								</div>
 								<!-- /.col -->
-								<div class="col-md-6">
+								<div class="col-md-4">
 									<div class="form-group">
 										<div class="col-md-12">
 											<label>{{__('Slug')}}</label>
 											<input type="text" name="slug" class="form-control" placeholder="{{__('Slug')}}" required="" autocomplete="off" value="{{$service->slug}}" id="slug"/>
+										</div>
+									</div>
+									<!-- /.form-group -->
+								</div>
+								<!-- /.col -->
+								<div class="col-md-4">
+									<div class="form-group">
+										<div class="col-md-12">
+											<label>{{__('Position')}}</label>
+											<input type="text" name="position" class="form-control" placeholder="{{__('Position')}}" required="" autocomplete="off" value="{{$service->position}}" id="position"/>
 										</div>
 									</div>
 									<!-- /.form-group -->

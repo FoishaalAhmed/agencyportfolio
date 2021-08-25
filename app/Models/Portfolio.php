@@ -10,7 +10,7 @@ class Portfolio extends Model
     use HasFactory;
 
     protected $fillable = [
-        'type', 'photo', 'video',
+        'photo', 'video',
     ];
 
     public function storePortfolio(Object $request)
@@ -28,10 +28,8 @@ class Portfolio extends Model
             $this->photo     = $image_url;
         }
 
-        $this->type  = $request->type;
         $this->video = $request->video;
         $storePortfolio = $this->save();
-
         $storePortfolio
             ? session()->flash('message', 'New Portfolio Created Successfully!')
             : session()->flash('message', 'Something Went Wrong!');
@@ -56,11 +54,8 @@ class Portfolio extends Model
             $portfolio->photo  = $image_url;
         }
 
-        $portfolio->type  = $request->type;
         $portfolio->video  = $request->video;
-
         $storePortfolio = $portfolio->save();
-
         $storePortfolio
             ? session()->flash('message', 'Portfolio Updated Successfully!')
             : session()->flash('message', 'Something Went Wrong!');

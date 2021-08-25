@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ApplicationController;
 use App\Http\Controllers\Admin\AwardController;
+use App\Http\Controllers\Admin\BusinessWallController;
 use App\Http\Controllers\Admin\CareerController;
 use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\ContactController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\EventWallController;
 
 Route::group(['prefix' => '/admin', 'as' => 'admin.', 'middleware' => ['admin', 'auth']], function () {
 
@@ -34,10 +36,12 @@ Route::group(['prefix' => '/admin', 'as' => 'admin.', 'middleware' => ['admin', 
     Route::resource('pages', PageController::class);
     Route::resource('services', ServiceController::class);
     Route::resource('teams', TeamController::class);
+    Route::resource('walls', BusinessWallController::class);
+    Route::resource('events', EventWallController::class);
     Route::resource('testimonials', TestimonialController::class)->except(['create', 'show']);
-    Route::resource('clients', ClientController::class)->except(['create', 'show' ]);
-    Route::resource('awards', AwardController::class)->except(['create', 'show' ]);
-    Route::resource('generals', GeneralController::class)->except(['create', 'show', 'edit' ]);
+    Route::resource('clients', ClientController::class)->except(['create', 'show']);
+    Route::resource('awards', AwardController::class)->except(['create', 'show']);
+    Route::resource('generals', GeneralController::class)->except(['create', 'show', 'edit']);
     Route::resource('queries', QueryController::class)->except(['create', 'store', 'edit', 'update']);
     Route::resource('videos', IntroVideoController::class)->except(['create', 'store', 'destroy', 'show']);
 });

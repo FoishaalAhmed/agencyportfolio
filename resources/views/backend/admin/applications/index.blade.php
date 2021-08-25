@@ -46,7 +46,7 @@
                                             <td>{{ $item->email }}</td>
                                             <td>{{ $item->subject }}</td>
                                             <td>{{ Str::limit($item->message, 150) }}</td>
-											<td><a target="_blank" href="{{ asset($item->cv) }}" title="" class="btn btn-sm bg-purple"><i class="fas fa-download"></i></td>
+											<td><a target="_blank" href="{{ asset($item->cv) }}" title="" class="btn btn-sm bg-purple"><i class="fas fa-download"></i></a></td>
                                             <td>
                                                 <a class="btn btn-sm bg-blue"
                                                     href="{{ route('admin.applications.show', [$item->id]) }}"><span

@@ -3,9 +3,8 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Portfolio;
 use App\Models\Query;
-use App\Models\Team;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Validator;
 
@@ -14,10 +13,8 @@ class TeamController extends Controller
 
     public function index()
     {
-        $teams = Team::orderBy('priority', 'desc')->get()->toArray();
-        $tvcs = Portfolio::where('type', 'TVC')->get();
-        $documentaries = Portfolio::where('type', 'Documentary')->get();
-        return view('frontend.team', compact( 'tvcs', 'documentaries', 'teams'));
+        $services = Service::orderBy('position', 'asc')->get();
+        return view('frontend.service', compact('services'));
     }
 
     public function contact()

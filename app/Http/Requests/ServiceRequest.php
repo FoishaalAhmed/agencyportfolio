@@ -17,15 +17,17 @@ class ServiceRequest extends FormRequest
         $rules = [
 
             'name' => 'required|string|max:255',
+            'position' => 'required|numeric|min:1',
+            'description' => 'required|string',
         ];
 
         if ($this->getMethod() == 'POST') {
 
             return $rules + [
 
-                'icon'        => 'mimes:jpeg,jpg,png,gif,webp|max:100|required',
+                'icon'        => 'mimes:jpeg,jpg,png,gif,webp|max:1000|required',
                 'slug'        => 'required|string|max: 255|unique:services,slug',
-                'description' => 'required|string',
+                
             ];
 
         } else {
@@ -33,7 +35,6 @@ class ServiceRequest extends FormRequest
             return $rules + [
 
                 'icon'        => 'mimes:jpeg,jpg,png,gif,webp|max:100|nullable',
-                'description' => 'nullable|string',
                 'slug'        => 'required|string|max:255|unique:services,slug,'. $this->service,
             ];
         }

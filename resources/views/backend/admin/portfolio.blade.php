@@ -27,16 +27,6 @@
                             @method('PUT')
                             <div class="row">
                                 <div class="col-md-9">
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <label class="control-label">{{ __('Type') }}</label>
-                                            <select name="type" class="form-control" required="" style="width: 100%"
-                                                id="type">
-                                                <option value="TVC" @if ($portfolio->type == 'TVC') {{ 'selected' }} @endif>TVC</option>
-                                                <option value="Documentary" @if ($portfolio->type == 'Documentary') {{ 'selected' }} @endif>Documentary</option>
-                                            </select>
-                                        </div>
-                                    </div>
                                     <!-- /.form-group -->
                                     <div class="form-group">
                                         <div class="col-md-12">
@@ -83,17 +73,6 @@
                             @csrf
                             <div class="row">
                                 <div class="col-md-9">
-                                    <div class="form-group">
-                                        <div class="col-md-12">
-                                            <label class="control-label">{{ __('Type') }}</label>
-                                            <select name="type" class="form-control" required="" style="width: 100%"
-                                                id="type">
-                                                <option value="TVC" @if (old('type') == 'TVC') {{ 'selected' }} @endif>TVC</option>
-                                                <option value="Documentary" @if (old('type') == 'Documentary') {{ 'selected' }} @endif>Documentary</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <!-- /.form-group -->
                                     <div class="form-group" id="video">
                                         <div class="col-md-12">
                                             <label class="control-label">{{ __('Video') }}</label>
@@ -141,7 +120,6 @@
                                 <thead>
                                     <tr>
                                         <th>{{ __('Sl') }}</th>
-                                        <th>{{ __('Type') }}</th>
                                         <th>{{ __('Video') }}</th>
                                         <th>{{ __('Photo') }}</th>
                                         <th>{{ __('Action') }}</th>
@@ -151,7 +129,6 @@
                                     @foreach ($portfolios as $item)
                                         <tr>
                                             <td>{{ $loop->index + 1 }}</td>
-                                            <td>{{ $item->type }}</td>
                                             <td>{{ $item->video }}</td>
                                             <td>
                                                 <img src="{{ asset($item->photo) }}" alt=""

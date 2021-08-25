@@ -41,7 +41,7 @@
                             <td>{{$loop->index + 1}}</td>
                             <td>{{$item->name}}</td>
                             <td>{{$item->slug}}</td>
-                            <td>{!! Str::limit($item->text, 150) !!}
+                            <td>{!! substr(strip_tags($item->text),0, 200) !!}
                               </td>
                             <td>
                                 <img src="{{asset($item->photo)}}" alt="" style="width: 50px; height: 50px;">

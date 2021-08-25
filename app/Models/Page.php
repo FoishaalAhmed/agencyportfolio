@@ -57,7 +57,7 @@ class Page extends Model
         }
 
         $page->name = $request->name;
-        $page->slug = $request->slug;
+        //$page->slug = $request->slug;
         $page->text = $request->text;
         $updatePage  = $page->save();
 

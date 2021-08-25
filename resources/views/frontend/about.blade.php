@@ -11,83 +11,108 @@
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="{{ asset('public/frontend/css/about-us.css') }}" />
-    <link rel="stylesheet" href="{{ asset('public/frontend/css/shared/shared.css') }}" />
-    <title>About Us</title>
+    <link rel="stylesheet" href={{ asset('public/frontend/css/about-us.css') }} />
+    <link rel="stylesheet" href={{ asset('public/frontend/css/shared/shared.css') }} />
+    <link rel="stylesheet" href={{ asset('public/frontend/css/style.css') }} />
+    <title>About</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 </head>
 
 <body>
     <main>
-        <section class="header-main">
-            <nav class="navbar navbar-expand-lg navbar-light ms-4">
-                <div class="container-fluid">
-                    <a class="navbar-brand me-4" href="{{ URL::to('/') }}"><img class="navbar-logo"
-                            src="{{ asset('public/frontend/images/logo.png') }}" alt="" /></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav mx-auto nav_items me-5">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="{{ URL::to('/') }}">HOME</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('about') }}">ABOUT US</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">SERVICE</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">PORTFOLIO</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">BUSINESSWALL</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('contact') }}">CONTACT US</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('career') }}">CAREER</a>
-                            </li>
-                        </ul>
+        <section class="header-main__about">
+            <nav>
+                <nav id="nav-bar" class="navbar navbar-expand-lg navbar-light fixed-top wow slideInDown"
+                    data-wow-duration="0.75s" data-wow-delay="0s" style="background-color: #002338;">
+
+
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="{{ URL::to('/') }}"><img class="navbar-logo"
+                                src="{{ asset('public/frontend/images/logo.png') }}" alt="" /></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav mx-auto nav_items me-5">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{{ URL::to('/') }}">HOME</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{{ route('about') }}">ABOUT</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{{ route('services') }}">SERVICE</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{{ route('business') }}">BUSINESSWALL</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{{ route('contact') }}">CONTACT</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{{ route('career') }}">CAREER</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                </nav>
             </nav>
         </section>
         <section id="about-us " class="mt-5">
             @if ($weAre != null)
-                <div class="container about-us__top text-center mb-5">
-                    <div class="about-us__top-header">
-                        <h1>
-                            WHAT PRIONTY DOES
-                            <hr class="w-25 mx-auto" />
-                        </h1>
-                    </div>
-                    <div class="w-75 mx-auto about-us__top-content" style="text-align: justify">
-                        <p>
-                            {!! $weAre->text !!}
-                        </p>
+                <div class="container about-us__top text-center mb-5" style="margin-top: 100px">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-10 ">
+                            <div class="about-us__top-header wow fadeInRight">
+                                <h1 style="padding-bottom: 30px; padding-top: 15px;color: #068bb6; ">
+                                    WHAT PRIONTY DOES
+                                </h1>
+                            </div>
+                            <div class="w-100 mx-auto about-us__top-content wow fadeInLeft" style="text-align: justify">
+                                <p>
+                                    {!! $weAre->text !!}
+                                </p>
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin: auto; " class="col-md-4 col-sm-10 wow rotateIn">
+                            <img class="" style="height: 370px; width: 355px; text-align: center;"
+                                src="{{ asset($weAre->photo) }}" alt="" />
+                        </div>
                     </div>
                 </div>
             @endif
             @if ($message != null)
-                <div class="container-fluid about-us__bottom bg-light">
-                    <div class="container mt-5">
-                        <div class="about-us__bottom-header text-center pt-5">
-                            <h1>MESSAGE FROM CEO</h1>
+                <div class="container">
+                    <div class="row" style="padding-bottom: 20px;">
+                        <div class="col-md-6"></div>
+                        <div class="col-md-6">
+                            <div style="text-align: center; margin: auto;"
+                                class="about-us__bottom-header text-center pt-5 wow fadeIn" data-wow-duration="1s"
+                                data-wow-delay="0.5s">
+                                <h1 style="text-align: center; margin: auto;padding-left: 50px;color: #068bb6;">MESSAGE
+                                    FROM
+                                    CEO</h1>
+                            </div>
                         </div>
-                        <div class="row mt-5 pb-5">
-                            <div class="col-md-4 col-sm-12 gy-3">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="col col-sm-12 gy-3 wow fadeInLeft">
                                 <img class="w-100" src="{{ asset($message->photo) }}" alt="" />
-                                <div class="img-info text-center">
-                                    <p style="margin: 0">MONOAR HOSSAIN PATHAN</p>
+                                <div style="padding-bottom: 50px;padding-top: 30px;" class="img-info text-center">
+                                    <p style="margin: 0"><b>MONOAR HOSSAIN PATHAN</b></p>
                                     <small>CEO & PROPRIETOR</small>
                                 </div>
                             </div>
-                            <div class="col ms-5 gy-3">
-                                <p class="w-70" style="text-align: justify; margin-left: -48px">
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="col ms-5 gy-3 wow fadeInRight">
+                                <p class="w-70" style="text-align: justify; margin-left: -48px;padding-left: 50px;">
                                     {!! $message->text !!}
                                 </p>
                             </div>
@@ -96,77 +121,38 @@
                 </div>
             @endif
         </section>
-        <section id="footer" class="container-fluid">
-            <div class="container pt-5">
-                <div class="row footer__main">
-                    <div class="col footer__left">
-                        <img src="{{ asset('public/frontend/images/logo.png') }}" alt="logo" />
-                        <p style="text-align: justify">
-                            @if ($about != null)
-                                {!! substr($about->text, 0, 292) !!}
-                            @endif
-                        </p>
-                    </div>
-                    <div class="col-lg-6 px-3 text-center footer__middle">
-                        <div class="mt-5 footer__middle-text">
-                            <h6 class="">WANT TO MAKE SOMETHING GREAT TOGETHER?</h6>
-                            <p>LET’S TALK HERE OR EMAIL US AT</p>
-                            <a href="mailto:{{ $contact->email }}">{{ $contact->email }}</a>
-                        </div>
-                        <div class="footer__nav">
-                            <ul class="me-5 d-flex">
-                                <li class="mx-2">
-                                    <a class="" href="{{ URL::to('/') }}">HOME</a>
-                                </li>
-                                <li class="mx-2">
-                                    <a class="" href="{{ route('about') }}">ABOUT</a>
-                                </li>
-                                <li class="mx-2">
-                                    <a class="" href="#">SERVICE</a>
-                                </li>
-                                <li class="mx-2">
-                                    <a class="" href="#">PORTFOLIO</a>
-                                </li>
-                                <li class="mx-2">
-                                    <a class="" href="#">BUSINESSWALL</a>
-                                </li>
-                                <li class="mx-2">
-                                    <a class="" href="{{ route('contact') }}">CONTACT </a>
-                                </li>
-                                <li class="">
-                                    <a class="" href="{{ route('career') }}">CAREER</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col ms-5 footer__right pt-5">
-                        <h6 class="mb-2">CONTACT INFO</h6>
-                        <p>OFFICE LINE <br />{{ $contact->phone }}</p>
-                        <p>FAX <br />{{ $contact->fax }}</p>
-                        <p>{{ $contact->address }}</p>
-                    </div>
+
+
+
+
+        <div class="footer" style="background-color: #002338;color: white;text-align: center;">
+            <div style="padding-top: 30px;padding-bottom: 10px;">
+                <p>LET’S TALK HERE OR EMAIL US AT</p>
+                <h6 class="mb-2">CONTACT INFO</h6>
+                <p style="margin-bottom: 0px;">{{ $contact->fax }} , {{ $contact->phone }}</p>
+                <a style="color: white;text-decoration: none;"
+                    href="mailto:{{ $contact->email }}">{{ $contact->email }}</a>
+                <p>{{ $contact->address }}</p>
+                <div class="justify-content-evenly align-items-center gx-2 mobile">
+                    <a style="text-decoration: none;font-size: 30px;padding: 15px;"
+                        href="{{ $contact->facebook }}"><i class="fab fa-facebook"></i> </a>
+                    <a style="text-decoration: none;font-size: 30px;color: red;padding: 15px;"
+                        href="{{ $contact->twitter }}"> <i class="fab fa-youtube"></i></a>
+                    <a style="text-decoration: none;font-size: 30px;padding: 15px;"
+                        href="{{ $contact->instagram }}"><i class="fab fa-linkedin"></i></a>
+                    <a style="text-decoration: none; font-size:30px;padding: 15px;color:green "
+                        href="{{ $contact->pinterest }}"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
-        </section>
-        <section class="container-fluid footer__bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-9">
-                        <small>© 2021 PRIONTY EDIT & EFFECT </small>
-                    </div>
-                    <div class="col-3 d-flex justify-content-evenly align-items-center gx-2">
-                        <a href="https://{{ $contact->facebook }}"><i class="fab fa-facebook"></i> </a>
-                        <a href="https://{{ $contact->twitter }}"> <i class="fab fa-youtube"></i></a>
-                        <a href="https://{{ $contact->instagram }}"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://{{ $contact->pinterest }}"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
+
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
+    <script src="{{ asset('public/frontend/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('public/frontend/js/index.js') }}"></script>
+    <script src="{{ asset('public/frontend/js/animation.js') }}"></script>
 </body>
 
 </html>

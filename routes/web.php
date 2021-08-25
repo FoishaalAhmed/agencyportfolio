@@ -11,12 +11,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/careers', [CareerController::class, 'index'])->name('career');
 Route::post('/careers/application', [CareerController::class, 'application'])->name('career.application');
-Route::get('/meet-our-team', [TeamController::class, 'index'])->name('teams');
+Route::get('/services', [TeamController::class, 'index'])->name('services');
 Route::post('/query', [TeamController::class, 'query'])->name('query');
 Route::get('/contact-us', [TeamController::class, 'contact'])->name('contact');
-Route::get('/photo-gallery', [GalleryController::class, 'photo'])->name('photos');
+Route::get('/business-wall', [GalleryController::class, 'photo'])->name('business');
 Route::get('/about-us', [GalleryController::class, 'about'])->name('about');
-Route::get('/news/{slug}', [GalleryController::class, 'news'])->name('news');
+Route::get('/our-works', [GalleryController::class, 'works'])->name('works');
 
 
 

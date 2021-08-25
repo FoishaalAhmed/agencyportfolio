@@ -18,7 +18,6 @@ class CareerController extends Controller
 
     public function application(Request $request)
     {
-        //dd($request);
             $validation = Validator::make($request->all(), [
                 'name'    => 'required|string|max:255',
                 'email'   => 'required|email|max:255',

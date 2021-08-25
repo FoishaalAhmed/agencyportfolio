@@ -14,51 +14,57 @@
 
     <link rel="stylesheet" href="{{ asset('public/frontend/css/contact-us.css') }}" />
     <link rel="stylesheet" href="{{ asset('public/frontend/css/shared/shared.css') }}" />
-    <title>Contact Us</title>
+    <link rel="stylesheet" href="{{ asset('public/frontend/css/style.css') }}" />
+    <title>Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
 </head>
 
 <body>
     <main>
-        <section class="header-main">
-            <nav class="navbar navbar-expand-lg navbar-light ms-4">
-                <div class="container-fluid">
-                    <a class="navbar-brand me-4" href="{{ URL::to('/') }}"><img class="navbar-logo"
-                            src="{{ asset('public/frontend/images/logo.png') }}" alt="" /></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav mx-auto nav_items me-5">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="{{ URL::to('/') }}">HOME</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('about') }}">ABOUT US</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">SERVICE</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">PORTFOLIO</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">BUSINESSWALL</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('contact') }}">CONTACT US</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('career') }}">CAREER</a>
-                            </li>
-                        </ul>
+        <section class="header-main_contact-us">
+            <nav>
+                <nav id="nav-bar" class="navbar navbar-expand-lg navbar-light fixed-top wow slideInDown"
+                    data-wow-duration="0.75s" data-wow-delay="0s" style="background-color: #002338;">
+
+
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="{{ URL::to('/') }}"><img class="navbar-logo"
+                                src="{{ asset('public/frontend/images/logo.png') }}" alt="" /></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                            <ul class="navbar-nav mx-auto nav_items me-5">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{{ URL::to('/') }}">HOME</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{{ route('about') }}">ABOUT</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{{ route('services') }}">SERVICE</a>
+                                </li>
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{{ route('business') }}">BUSINESSWALL</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{{ route('contact') }}">CONTACT</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="{{ route('career') }}">CAREER</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                </nav>
             </nav>
         </section>
-        <section>
-            <div class="container mt-5">
+        <section style="margin-top: 200px">
+            <div class="container mt-5 ">
                 <div class="row d-flex justify-content-center">
                     <iframe src="{{ $contact->map }}" width="600" height="450" style="border: 0" allowfullscreen=""
                         loading="lazy"></iframe>
@@ -69,7 +75,8 @@
             </div>
             <section class="contact-form mt-5 container">
                 <div class="row">
-                    <div class="col">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6 wow fadeInLeft">
                         <div class="form-head">
                             <h4>HELLO!</h4>
                             <p>
@@ -93,10 +100,10 @@
                                     data-form-field="Phone" />
                             </div>
                             <div class="form-group p-1 mb-2">
-                                <input type="subject" class="form-control" name="subject" required="" placeholder="subject" />
+                                <input type="subject" class="form-control" name="subject" placeholder="subject" />
                             </div>
                             <div class="form-group p-1 mb-2">
-                                <textarea class="form-control" name="message" required="" placeholder="Message" rows="7"
+                                <textarea class="form-control" name="message" placeholder="Message" rows="7"
                                     data-form-field="Message"></textarea>
                             </div>
                             <div class="form-button">
@@ -106,108 +113,40 @@
                             </div>
                         </form>
                     </div>
-                    <div class="col-md-6 mt-5 gy-3">
-                        <div class="form__header-right w-50 mx-auto text-center">
-                            <h4>ADDRESS</h4>
-                        </div>
-                        <div class="contact mt-5 w-50 mx-auto">
-                            <div class="d-flex justify-content-evenly align-items-center">
-                                <i class="fas fa-tty"></i>
-                                <p>
-                                    {{ $contact->phone }}
-                                    
-                                </p>
-                            </div>
-                            <div class="d-flex justify-content-evenly align-items-center">
-                                <i class="fas fa-tty"></i>
-                                <p>
-                                    {{ $contact->fax }}
-                                </p>
-                            </div>
-                            <div class="d-flex justify-content-center align-items-center mt-2">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <p class="ms-4">
-                                    {{ $contact->address }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+
+                    <div class="col-md-3"></div>
                 </div>
             </section>
         </section>
-        <section id="footer" class="container-fluid">
-            <div class="container pt-5">
-                <div class="row footer__main">
-                    <div class="col footer__left">
-                        <img src="{{ asset('public/frontend/images/logo.png') }}" alt="logo" />
-                        <p style="text-align: justify">
-                            @if ($about != null)
-                                {!! substr($about->text, 0, 292) !!}
-                            @endif
-                        </p>
-                    </div>
-                    <div class="col-lg-6 px-3 text-center footer__middle">
-                        <div class="mt-5 footer__middle-text">
-                            <h6 class="">WANT TO MAKE SOMETHING GREAT TOGETHER?</h6>
-                            <p>LET’S TALK HERE OR EMAIL US AT</p>
-                            <a href="mailto:{{ $contact->email }}">{{ $contact->email }}</a>
-                        </div>
-                        <div class="footer__nav">
-                            <ul class="me-5 d-flex">
-                                <li class="mx-2">
-                                    <a class="" href="{{ URL::to('/') }}">HOME</a>
-                                </li>
-                                <li class="mx-2">
-                                    <a class="" href="{{ route('about') }}">ABOUT</a>
-                                </li>
-                                <li class="mx-2">
-                                    <a class="" href="#">SERVICE</a>
-                                </li>
-                                <li class="mx-2">
-                                    <a class="" href="#">PORTFOLIO</a>
-                                </li>
-                                <li class="mx-2">
-                                    <a class="" href="#">BUSINESSWALL</a>
-                                </li>
-                                <li class="mx-2">
-                                    <a class="" href="{{ route('contact') }}">CONTACT </a>
-                                </li>
-                                <li class="">
-                                    <a class="" href="{{ route('career') }}">CAREER</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col ms-5 footer__right pt-5">
-                        <h6 class="mb-2">CONTACT INFO</h6>
-                        <p>OFFICE LINE <br />{{ $contact->phone }}</p>
-                        <p>FAX <br />{{ $contact->fax }}</p>
-                        <p>{{ $contact->address }}</p>
-                    </div>
+        <div class="footer" style="background-color: #002338;color: white;text-align: center;">
+            <div style="padding-top: 30px;padding-bottom: 10px;">
+                <p>LET’S TALK HERE OR EMAIL US AT</p>
+                <h6 class="mb-2">CONTACT INFO</h6>
+                <p style="margin-bottom: 0px;">{{ $contact->fax }} , {{ $contact->phone }}</p>
+                <a style="color: white;text-decoration: none;"
+                    href="mailto:{{ $contact->email }}">{{ $contact->email }}</a>
+                <p>{{ $contact->address }}</p>
+                <div class="justify-content-evenly align-items-center gx-2 mobile">
+                    <a style="text-decoration: none;font-size: 30px;padding: 15px;"
+                        href="{{ $contact->facebook }}"><i class="fab fa-facebook"></i> </a>
+                    <a style="text-decoration: none;font-size: 30px;color: red;padding: 15px;"
+                        href="{{ $contact->twitter }}"> <i class="fab fa-youtube"></i></a>
+                    <a style="text-decoration: none;font-size: 30px;padding: 15px;"
+                        href="{{ $contact->instagram }}"><i class="fab fa-linkedin"></i></a>
+                    <a style="text-decoration: none; font-size:30px;padding: 15px;color:green "
+                        href="{{ $contact->pinterest }}"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
-        </section>
-        <section class="container-fluid footer__bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-9">
-                        <small>© 2021 PRIONTY EDIT & EFFECT </small>
-                    </div>
-                    <div class="col-3 d-flex justify-content-evenly align-items-center gx-2">
-                        <a href="https://{{ $contact->facebook }}"><i class="fab fa-facebook"></i> </a>
-                        <a href="https://{{ $contact->twitter }}"> <i class="fab fa-youtube"></i></a>
-                        <a href="https://{{ $contact->instagram }}"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://{{ $contact->pinterest }}"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
+    <script src="{{ asset('public/frontend/js/jquery.min.js') }}"></script>
+    <script src="{{ asset('public/frontend/js/index.js') }}"></script>
+    <script src="{{ asset('public/frontend/js/animation.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
-    <script src="{{ asset('public/frontend/js/jquery.min.js') }}"></script>
-
     <script>
         $(function() {
 
@@ -267,7 +206,6 @@
             });
 
         });
-
     </script>
 </body>
 

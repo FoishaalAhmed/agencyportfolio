@@ -1,0 +1,3 @@
+[06-Jul-2021 20:10:28 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.3.0". You are running 7.2.33. in /home2/priontyc/public_html/vendor/composer/platform_check.php on line 24
+[12-Jul-2021 15:15:06 America/New_York] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.3.0". You are running 7.2.34. in /home/priozmxq/public_html/vendor/composer/platform_check.php on line 24
+[24-Aug-2021 13:22:17 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 7.3.0". You are running 7.2.33. in /home2/priontyc/public_html/vendor/composer/platform_check.php on line 24
